@@ -1,0 +1,20 @@
+{
+	"Domains":["Archeteture", "Dependability", "Risk Managemnt", "Trust Managemnt", "Protection", "Security","Saftey", "Resiliance"],
+	"Archeteture":{
+		"Attributes":["Lexicon", "Standards", "Mission", "Means", "Motivtation", "Method"],
+		"Lexicon":"Lexicon Definition",
+		"Standards":"Standards Definition",
+		"Mission":"Mission Definition",
+		"Means":"Means Definition",
+		"Method":"Method Definition"		
+	},
+	"Dependability":{
+		"Attributes":["Maintainablity", "Reliability", "Confidentiality", "Integrity", "Availablity","Saftey"],
+		"Maintainablity":"Maintainablity Definition", 
+		"Reliability":"Reliability Definition", 
+		"Confidentiality":"Confidentiality Definition", 
+		"Integrity":"Integrity Definition", 
+		"Availablity":"Availablity Definition",
+		"Saftey":"Saftey Definition"
+	},
+}
