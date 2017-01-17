@@ -1,5 +1,5 @@
 {
-	"Domains":["Archeteture", "Dependability", "Risk Managemnt", "Trust Managemnt", "Protection", "Security","Saftey", "Resiliance"],
+	"Domains":["Archeteture", "Dependability", "Risk Management", "Trust Management", "Protection", "Security","Saftey", "Resiliance"],
 	"Archeteture":{
 		"Attributes":["Lexicon", "Standards", "Mission", "Means", "Motivtation", "Method"],
 		"Lexicon":"Lexicon Definition",
@@ -17,4 +17,55 @@
 		"Availablity":"Availablity Definition",
 		"Saftey":"Saftey Definition"
 	},
+	"Risk Management":{
+		"Attributes":["Identification", "Analysis", "Probability", "Impact", "Mitigation"],
+		"Identification":"",
+		"Analysis":"",
+		"Probability":"",
+		"Impact":"", 
+		"Mitigation":""
+	},
+	"Trust Management":{
+		"Attributes":["Dynamic", "Attraction", "Local", "Expertness","Intentions", "Reliability"],
+		"Dynamic":"", 
+		"Attraction":"", 
+		"Local":"", 
+		"Expertness":"",
+		"Intentions":"", 
+		"Reliability":""
+	},
+	"Protection":{
+		"Attributes":["System Information", "Measurse / Metrics", "Application Data", "Risk Management", "Technology","Operations"],
+		"System Information":"", 
+		"Measurse / Metrics":"", 
+		"Application Data":"", 
+		"Risk Management":"", 
+		"Technology":"",
+		"Operations":""
+	}, 
+	"Security":{
+		"Attributes":["Accountability","Awarness","Multidispalinary", "Ethics", "Proportionally"],
+		"Accountability":"",
+		"Awarness":"",
+		"Multidispalinary":"", 
+		"Ethics":"", 
+		"Proportionally":""
+	},
+	"Saftey":{
+		"Attributes":["Avoidance", "Identification","Assessment","Limitaion", "Reduction"],
+		"Avoidance":"", 
+		"Identification":"",
+		"Assessment":"",
+		"Limitaion":"", 
+		"Reduction":""
+
+	}, 
+	"Resiliance":{
+		"Attributes":["Threats and Events", "Positive Outcomes", "Adaptability", "Preparations","Survability"],
+		"Threats and Events":"", 
+		"Positive Outcomes":"", 
+		"Adaptability":"Adaptability Definition", 
+		"Preparations":"Preparations Definition",
+		"Survability":"Survability Definition"
+	}
 }
