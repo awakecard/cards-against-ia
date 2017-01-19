@@ -1,70 +1,71 @@
 {
-	"Domains":["Archeteture", "Dependability", "Risk Management", "Trust Management", "Protection", "Security","Saftey", "Resiliance"],
-	"Archeteture":{
-		"Attributes":["Lexicon", "Standards", "Mission", "Means", "Motivtation", "Method"],
+	"Domains":["Architecture", "Dependability", "Risk Management", "Trust Management", "Protection", "Security", "Safety", "Resiliance"],
+	"Architecture":{
+		"Attributes":["Lexicon", "Standards", "Mission", "Means", "Motivation", "Method"],
 		"Lexicon":"Lexicon Definition",
 		"Standards":"Standards Definition",
 		"Mission":"Mission Definition",
 		"Means":"Means Definition",
-		"Method":"Method Definition"		
+		"Motivation":"Motivation Definition",
+		"Method":"Method Definition"
 	},
 	"Dependability":{
-		"Attributes":["Maintainablity", "Reliability", "Confidentiality", "Integrity", "Availablity","Saftey"],
-		"Maintainablity":"Maintainablity Definition", 
-		"Reliability":"Reliability Definition", 
-		"Confidentiality":"Confidentiality Definition", 
-		"Integrity":"Integrity Definition", 
+		"Attributes":["Maintainablity", "Reliability", "Confidentiality", "Integrity", "Availablity", "Safety"],
+		"Maintainablity":"Maintainablity Definition",
+		"Reliability":"Reliability Definition",
+		"Confidentiality":"Confidentiality Definition",
+		"Integrity":"Integrity Definition",
 		"Availablity":"Availablity Definition",
-		"Saftey":"Saftey Definition"
+		"Safety":"Safety Definition"
 	},
 	"Risk Management":{
 		"Attributes":["Identification", "Analysis", "Probability", "Impact", "Mitigation"],
-		"Identification":"",
-		"Analysis":"",
-		"Probability":"",
-		"Impact":"", 
-		"Mitigation":""
+		"Identification":"I Def",
+		"Analysis":"A Def",
+		"Probability":"P Def",
+		"Impact":"I Def",
+		"Mitigation":"M Def"
 	},
 	"Trust Management":{
 		"Attributes":["Dynamic", "Attraction", "Local", "Expertness","Intentions", "Reliability"],
-		"Dynamic":"", 
-		"Attraction":"", 
-		"Local":"", 
-		"Expertness":"",
-		"Intentions":"", 
-		"Reliability":""
+		"Dynamic":"D Def",
+		"Attraction":"A Deg",
+		"Local":"L Def",
+		"Expertness":"E Def",
+		"Intentions":"I Def",
+		"Reliability":"R Def"
 	},
 	"Protection":{
-		"Attributes":["System Information", "Measurse / Metrics", "Application Data", "Risk Management", "Technology","Operations"],
-		"System Information":"", 
-		"Measurse / Metrics":"", 
-		"Application Data":"", 
-		"Risk Management":"", 
-		"Technology":"",
-		"Operations":""
-	}, 
-	"Security":{
-		"Attributes":["Accountability","Awarness","Multidispalinary", "Ethics", "Proportionally"],
-		"Accountability":"",
-		"Awarness":"",
-		"Multidispalinary":"", 
-		"Ethics":"", 
-		"Proportionally":""
+		"Attributes":["System Information", "Measure / Metrics", "Application Data", "Risk Management", "Technology","Operations"],
+		"System Information":"SI Def",
+		"Measure / Metrics":"MM Def",
+		"Application Data":"AD Def",
+		"Risk Management":"RM Def",
+		"Technology":"T Def",
+		"Operations":"O Def"
 	},
-	"Saftey":{
+	"Security":{
+		"Attributes":["Accountability","Awareness","Multidisciplinary", "Ethics", "Proportionality"],
+		"Accountability":"AC Def",
+		"Awareness":"AW Def",
+		"Multidisciplinary":"MD Def",
+		"Ethics":"E Def",
+		"Proportionality":"PR Def"
+	},
+	"Safety":{
 		"Attributes":["Avoidance", "Identification","Assessment","Limitaion", "Reduction"],
-		"Avoidance":"", 
-		"Identification":"",
-		"Assessment":"",
-		"Limitaion":"", 
-		"Reduction":""
+		"Avoidance":"Avoidance Definition",
+		"Identification":"Identification Definition",
+		"Assessment":"Assessment Definition",
+		"Limitaion":"Limitation Definition",
+		"Reduction":"Reduction Definition"
 
-	}, 
+	},
 	"Resiliance":{
 		"Attributes":["Threats and Events", "Positive Outcomes", "Adaptability", "Preparations","Survability"],
-		"Threats and Events":"", 
-		"Positive Outcomes":"", 
-		"Adaptability":"Adaptability Definition", 
+		"Threats and Events":"Threats and Events Definition",
+		"Positive Outcomes":"Positive Outcomes Definition",
+		"Adaptability":"Adaptability Definition",
 		"Preparations":"Preparations Definition",
 		"Survability":"Survability Definition"
 	}
