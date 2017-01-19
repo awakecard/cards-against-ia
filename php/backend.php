@@ -14,7 +14,6 @@ if (isset($_POST['Get Question'])) {
 		// handle non-JSON error
 	}
 } elseif (isset($_POST['Check Answer'])) {
-	print_r(json_encode(checkAnswer($json, $_POST['Check Answer'])));
 	return json_encode(checkAnswer($json, $_POST['Check Answer']));
 }
 
