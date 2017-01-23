@@ -9,7 +9,7 @@
 */
 
 
-$jsonFile = file_get_contents($[$_SERVER_ROOT].'../appdata.json');
+$jsonFile = file_get_contents($[$_SERVER_ROOT].'/php/appdata.json');
 $json = json_decode($jsonFile, true);
 
 /**
