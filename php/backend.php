@@ -1,5 +1,4 @@
 <?php
-
 /**
 * functions:
 *	line 019 : Post Definitions
@@ -8,8 +7,7 @@
 *	line 125 : checkAnswers
 */
 
-
-$jsonFile = file_get_contents($[$_SERVER_ROOT].'/php/appdata.json');
+$jsonFile = file_get_contents($[$_SERVER_ROOT].'/appdata.json');
 $json = json_decode($jsonFile, true);
 
 /**
@@ -24,10 +22,9 @@ if (isset($_POST['Get Question'])) {
 		// handle non-JSON error
 	}
 } elseif (isset($_POST['Check Answer'])) {
-	return json_encode(checkAnswer($json, $_POST['Check Answer']));
+		return json_encode(checkAnswer($json, $_POST['Check Answer']));
 } else{
-	throw new Exception("Error Processing Request", 1);
-	
+		throw new Exception("Error Processing Request", 1);
 }
 
 /**
@@ -48,7 +45,6 @@ function genQuestion($data, $questionType) {
 		$question = sprintf("_____ is the definition of %s.", $attribute);
 	} else {
 		throw new Exception("Error Processing Request", 1);
-		
 	}
 
 	$answers = genAnswers($data, $questionType, $question, $domain);
@@ -67,7 +63,6 @@ function genQuestion($data, $questionType) {
  * @return {array}               The shuffled array of generated answers.
  */
 function genAnswers($data, $questionType, $question, $domain) {
-	
 	if ($questionType == 0) { // Attribute of?
 		$size = count($data[$domain]['Attributes']) -1;
 		$answers[] = $data[$domain]['Attributes'][rand(0, $size)]; // insert correct answer
@@ -107,12 +102,11 @@ function genAnswers($data, $questionType, $question, $domain) {
 
 			$answers[] = $tmpDefinition;
 		}
-		else { //invalid request
-			throw new Exception("Error Processing Request", 1);
-		}
 
 		shuffle($answers);
 		return $answers;
+	} else { //invalid request
+		throw new Exception("Error Processing Request", 1);
 	}
 }
 
