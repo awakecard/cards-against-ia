@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Cards Against IA</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <style>
+      p {
+        font-size: 14pt;
+      }
+      .black, .white {
+        min-height: 325px;
+        border-radius: 5px;
+      }
+
+      .black {
+        background: #000;
+      }
+
+      .black p {
+        color: #fff;
+      }
+
+      .white {
+        background: #fff;
+        border: 1px solid #000;
+        border-radius: 5px;
+      }
+
+      .white:hover {
+        box-shadow: 2px 2px 2px #000;
+        -webkit-box-shadow: 2px 2px 2px #000;
+        -moz-box-shadow: 2px 2px 2px #000;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="page-header">
+            <h1>Cards Against IA</h1>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2 col-md-offset-10 score">
+          <p>Score: <span>0</span></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="well black">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="well white">
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="well white">
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="well white">
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="well white">
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+      var score = 0;
+
+      $(document).ready(function() {
+        newQuestion();
+      });
+
+      $('.white').click(function(e) {
+        var card = $(this);
+        var data = {
+          question: $('.black p').text(),
+          answer: $(this).find('p').text()
+        };
+
+        var response = $.post('php/backend.php', {
+          checkAnswer: data
+        });
+
+        response.done(function(mark) {
+          if(mark == "true") {
+            incrementScore(score);
+            resetCards();
+            newQuestion();
+          } else {
+            card.css('backgroundColor', '#fca1a1 ');
+          }
+        });
+      });
+
+      function newQuestion() {
+        var response = $.post('php/backend.php', {
+          getQuestion: true
+        });
+
+        response.done(function(data) {
+          var question = $.parseJSON(data);
+          var answerCount = 0;
+
+          $('.black').html('<p>' + question.question + '</p>');
+          $('.row').find('.white').each(function() {
+            $(this).html('<p>' + question.answers[answerCount] + '</p>');
+            answerCount += 1;
+          });
+        });
+      }
+
+      function resetCards() {
+        $('.row').find('.white').each(function() {
+          $(this).css('backgroundColor', '#fff');
+        });
+      }
+
+      function incrementScore() {
+        score += 1;
+        $('.score span').text(score);
+      }
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -7,23 +7,23 @@
 *	line 125 : checkAnswers
 */
 
-$jsonFile = file_get_contents($[$_SERVER_ROOT].'/appdata.json');
+$jsonFile = file_get_contents($_SERVER['DOCUMENT_ROOT'].'/cards/appdata.json');
 $json = json_decode($jsonFile, true);
 
 /**
  * Check the type of POST request from frontend and respond accordingly.
  * Verifies there were no JSON Parse errors before proceeding.
  */
-if (isset($_POST['Get Question'])) {
-	if (json_last_error() == JSON_ERROR_NONE) {
+if(isset($_POST['getQuestion'])) {
+	if(json_last_error() == JSON_ERROR_NONE) {
 		$questionType = rand(0, 1);
-		return json_encode(genQuestion($json, $questionType));
+		die(json_encode(genQuestion($json, $questionType)));
 	} else {
 		// handle non-JSON error
 	}
-} elseif (isset($_POST['Check Answer'])) {
-		return json_encode(checkAnswer($json, $_POST['Check Answer']));
-} else{
+} elseif(isset($_POST['checkAnswer'])) {
+		die(json_encode(checkAnswer($json, $_POST['checkAnswer'])));
+} else {
 		throw new Exception("Error Processing Request", 1);
 }
 
@@ -49,8 +49,8 @@ function genQuestion($data, $questionType) {
 
 	$answers = genAnswers($data, $questionType, $question, $domain);
 	return [
-		"Question" => $question,
-		"Answers" => $answers
+		"question" => $question,
+		"answers" => $answers
 	];
 }
 
@@ -119,17 +119,17 @@ function genAnswers($data, $questionType, $question, $domain) {
 function checkAnswer($data, $userData) { // call on answer attempt
 	$questionType = null;
 
-	if (strstr($userData['Question'], "attribute"))
+	if (strstr($userData['question'], "attribute"))
 		$questionType = 0;
-	elseif (strstr($userData['Question'], "definition"))
+	elseif (strstr($userData['question'], "definition"))
 		$questionType = 1;
 
-	$words = explode(' ', $userData['Question']);
+	$words = explode(' ', $userData['question']);
 	$actor = substr(array_pop($words), 0, -1);
 
 	if ($questionType == 0) { // Attribute of?
 		foreach ($data[$actor] as $key => $value) {
-			if ($key == $userData['Answer'])
+			if ($key == $userData['answer'])
 				return true;
 		}
 
@@ -137,7 +137,7 @@ function checkAnswer($data, $userData) { // call on answer attempt
 	} elseif ($questionType == 1) { // Definition of?
 		foreach ($data['Domains'] as $value) {
 			foreach ($data[$value] as $v) {
-				if ($v == $userData['Answer'])
+				if ($v == $userData['answer'])
 					return true;
 			}
 		}
