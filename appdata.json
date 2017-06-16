@@ -1,7 +1,7 @@
 {
-	"Domains":["Architecture", "Dependability", "Risk Management", "Trust Management", "Protection", "Security", "Safety", "Resiliance"],
+	"Domains":["Architecture", "Dependability", "RiskManagement", "TrustManagement", "Protection", "Security", "Safety", "Resiliance"],
 	"Architecture":{
-		"Attributes":["Lexicon", "Standards", "Mission", "Means", "Motivation", "Method"],
+		"Attributes":["Lexicon", "Standards", "Mission", "Means", "Motivation"],
 		"Lexicon":"Lexicon Definition",
 		"Standards":"Standards Definition",
 		"Mission":"Mission Definition",
@@ -10,7 +10,7 @@
 		"Method":"Method Definition"
 	},
 	"Dependability":{
-		"Attributes":["Maintainablity", "Reliability", "Confidentiality", "Integrity", "Availablity", "Safety"],
+		"Attributes":["Maintainablity", "Reliability", "Confidentiality", "Integrity", "Availablity"],
 		"Maintainablity":"Maintainablity Definition",
 		"Reliability":"Reliability Definition",
 		"Confidentiality":"Confidentiality Definition",
@@ -18,7 +18,7 @@
 		"Availablity":"Availablity Definition",
 		"Safety":"Safety Definition"
 	},
-	"Risk Management":{
+	"RiskManagement":{
 		"Attributes":["Identification", "Analysis", "Probability", "Impact", "Mitigation"],
 		"Identification":"I Def",
 		"Analysis":"A Def",
@@ -26,8 +26,8 @@
 		"Impact":"I Def",
 		"Mitigation":"M Def"
 	},
-	"Trust Management":{
-		"Attributes":["Dynamic", "Attraction", "Local", "Expertness","Intentions", "Reliability"],
+	"TrustManagement":{
+		"Attributes":["Dynamic", "Attraction", "Local", "Expertness","Intentions"],
 		"Dynamic":"D Def",
 		"Attraction":"A Deg",
 		"Local":"L Def",
@@ -36,11 +36,11 @@
 		"Reliability":"R Def"
 	},
 	"Protection":{
-		"Attributes":["System Information", "Measure / Metrics", "Application Data", "Risk Management", "Technology","Operations"],
-		"System Information":"SI Def",
-		"Measure / Metrics":"MM Def",
+		"Attributes":["SystemInformation", "MeasureMetrics", "ApplicationData", "RiskManagement", "Technology"],
+		"SystemInformation":"SI Def",
+		"MeasureMetrics":"MM Def",
 		"Application Data":"AD Def",
-		"Risk Management":"RM Def",
+		"RiskManagement":"RM Def",
 		"Technology":"T Def",
 		"Operations":"O Def"
 	},
@@ -62,9 +62,9 @@
 
 	},
 	"Resiliance":{
-		"Attributes":["Threats and Events", "Positive Outcomes", "Adaptability", "Preparations","Survability"],
-		"Threats and Events":"Threats and Events Definition",
-		"Positive Outcomes":"Positive Outcomes Definition",
+		"Attributes":["ThreatsandEvents", "PositiveOutcomes", "Adaptability", "Preparations","Survability"],
+		"ThreatsandEvents":"Threats and Events Definition",
+		"PositiveOutcomes":"Positive Outcomes Definition",
 		"Adaptability":"Adaptability Definition",
 		"Preparations":"Preparations Definition",
 		"Survability":"Survability Definition"
