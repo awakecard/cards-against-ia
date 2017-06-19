@@ -84,23 +84,27 @@
       });
 
       $('.white').click(function(e) {
-        var card = $(this);
         var data = {
-          question: $('.black p').text(),
+          question: $('.black p').text().replace(/ /g, '/'),
           answer: $(this).find('p').text()
         };
+
+        if(data.question.indexOf('definition') < 0) {
+          data.answer = data.answer.replace(/ /g, '/');
+        }
+        console.log(data); // remove
 
         var response = $.post('php/backend.php', {
           checkAnswer: data
         });
 
         response.done(function(mark) {
+          console.log(mark);
           if(mark == "true") {
             incrementScore(score);
-            resetCards();
             newQuestion();
           } else {
-            card.css('backgroundColor', '#fca1a1 ');
+            newQuestion();
           }
         });
       });
@@ -111,20 +115,15 @@
         });
 
         response.done(function(data) {
-          var question = $.parseJSON(data);
+          var cards = $.parseJSON(data);
           var answerCount = 0;
+          var question = cards.question.replace(/\//g, ' ');
 
-          $('.black').html('<p>' + question.question + '</p>');
+          $('.black').html('<p>' + question + '</p>');
           $('.row').find('.white').each(function() {
-            $(this).html('<p>' + question.answers[answerCount] + '</p>');
+            $(this).html('<p>' + cards.answers[answerCount].replace(/\//g, ' ') + '</p>');
             answerCount += 1;
           });
-        });
-      }
-
-      function resetCards() {
-        $('.row').find('.white').each(function() {
-          $(this).css('backgroundColor', '#fff');
         });
       }
 
