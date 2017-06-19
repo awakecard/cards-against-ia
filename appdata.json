@@ -1,5 +1,5 @@
 {
-	"Domains":["Architecture", "Dependability", "RiskManagement", "TrustManagement", "Protection", "Security", "Safety", "Resiliance"],
+	"Domains":["Architecture", "Dependability", "Risk/Management", "Trust/Management", "Protection", "Security", "Safety", "Resilience"],
 	"Architecture":{
 		"Attributes":["Lexicon", "Standards", "Mission", "Means", "Motivation"],
 		"Lexicon":"Lexicon Definition",
@@ -18,7 +18,7 @@
 		"Availablity":"Availablity Definition",
 		"Safety":"Safety Definition"
 	},
-	"RiskManagement":{
+	"Risk/Management":{
 		"Attributes":["Identification", "Analysis", "Probability", "Impact", "Mitigation"],
 		"Identification":"I Def",
 		"Analysis":"A Def",
@@ -26,21 +26,21 @@
 		"Impact":"I Def",
 		"Mitigation":"M Def"
 	},
-	"TrustManagement":{
+	"Trust/Management":{
 		"Attributes":["Dynamic", "Attraction", "Local", "Expertness","Intentions"],
 		"Dynamic":"D Def",
-		"Attraction":"A Deg",
+		"Attraction":"A Def",
 		"Local":"L Def",
 		"Expertness":"E Def",
 		"Intentions":"I Def",
 		"Reliability":"R Def"
 	},
 	"Protection":{
-		"Attributes":["SystemInformation", "MeasureMetrics", "ApplicationData", "RiskManagement", "Technology"],
-		"SystemInformation":"SI Def",
-		"MeasureMetrics":"MM Def",
-		"Application Data":"AD Def",
-		"RiskManagement":"RM Def",
+		"Attributes":["System/Information", "Measure/Metrics", "Application/Data", "Risk/Management", "Technology"],
+		"System/Information":"SI Def",
+		"Measure/Metrics":"MM Def",
+		"Application/Data":"AD Def",
+		"Risk/Management":"RM Def",
 		"Technology":"T Def",
 		"Operations":"O Def"
 	},
@@ -53,20 +53,20 @@
 		"Proportionality":"PR Def"
 	},
 	"Safety":{
-		"Attributes":["Avoidance", "Identification","Assessment","Limitaion", "Reduction"],
+		"Attributes":["Avoidance", "Identification","Assessment","Limitation", "Reduction"],
 		"Avoidance":"Avoidance Definition",
 		"Identification":"Identification Definition",
 		"Assessment":"Assessment Definition",
-		"Limitaion":"Limitation Definition",
+		"Limitation":"Limitation Definition",
 		"Reduction":"Reduction Definition"
 
 	},
-	"Resiliance":{
-		"Attributes":["ThreatsandEvents", "PositiveOutcomes", "Adaptability", "Preparations","Survability"],
-		"ThreatsandEvents":"Threats and Events Definition",
-		"PositiveOutcomes":"Positive Outcomes Definition",
+	"Resilience":{
+		"Attributes":["Threats/and/Events", "Positive/Outcomes", "Adaptability", "Preparations","Survivability"],
+		"Threats/and/Events":"Threats and Events Definition",
+		"Positive/Outcomes":"Positive Outcomes Definition",
 		"Adaptability":"Adaptability Definition",
 		"Preparations":"Preparations Definition",
-		"Survability":"Survability Definition"
+		"Survivability":"Survivability Definition"
 	}
 }
