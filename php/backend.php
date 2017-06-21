@@ -24,14 +24,14 @@ if(isset($_POST['getQuestion'])) {
 } elseif(isset($_POST['checkAnswer'])) {
 		die(json_encode(checkAnswer($json, $_POST['checkAnswer'])));
 } else {
-		throw new Exception("Error Processing Request", 1);
+		throw new Exception('Error Processing Request', 1);
 }
 
 /**
  * Generates a new question to send to the frontend.
  * @param  {array} $data         JSON data from appdata.json.
  * @param  {int} $questionType Integer value representing question type 0 = attribute of, 1 = definition of.
- * @return {array}               Returns the question and a set of answers for the frontend to display. Format array("Question" => "question string", "Answers" => array("answer strings"));
+ * @return {array}               Returns the question and a set of answers for the frontend to display. Format array('Question' => 'question string', 'Answers' => array('answer strings'));
  */
 function genQuestion($data, $questionType) {
 	$domain =  $data['Domains'][rand(0, 7)];
@@ -40,17 +40,18 @@ function genQuestion($data, $questionType) {
 	$question = null;
 
 	if ($questionType == 0) { // Attribute of?
-		$question = sprintf("_____ is an attribute of %s.", $domain);
+		$question = sprintf('_____ is an attribute of %s.', $domain);
 	} elseif ($questionType == 1) {
-		$question = sprintf("_____ is the definition of %s.", $attribute);
+		$question = sprintf('_____ is the definition of %s.', $attribute);
 	} else {
-		throw new Exception("Error Processing Request", 1);
+		throw new Exception('Error Processing Request', 1);
 	}
 
 	$answers = genAnswers($data, $questionType, $question, $domain);
 	return [
-		"question" => $question,
-		"answers" => $answers
+		'domain' => $domain,
+		'question' => $question,
+		'answers' => $answers
 	];
 }
 
@@ -73,12 +74,12 @@ function genAnswers($data, $questionType, $question, $domain) {
 			do {
 				$tmpSize = count($data['Domains']) - 1;
 				$tmpDomain = $data['Domains'][rand(0, $tmpSize)];
-			} while ($tmpDomain == $domain);
+			} while($tmpDomain == $domain);
 
 			do {
-				$tmpSize = count($data['Domains']) - 1;
-				$tmpAttribute = $data[$tmpDomain]['Attributes'][rand(0, $size)];
-			} while (in_array($tmpAttribute, $answers));
+				$tmpSize = count($data[$tmpDomain]['Attributes']) - 1;
+				$tmpAttribute = $data[$tmpDomain]['Attributes'][rand(0, $tmpSize)];
+			} while(in_array($tmpAttribute, $answers));
 
 			$answers[] = $tmpAttribute;
 		}
@@ -90,7 +91,7 @@ function genAnswers($data, $questionType, $question, $domain) {
 		$attribute = substr(array_pop($words), 0, -1);
 		$answers[] = $data[$domain][$attribute]; // insert correct answer
 
-		for ($i = 0; $i < 3; $i++) {
+		for($i = 0; $i < 3; $i++) {
 			$tmpSize = count($data['Domains']) - 1;
 			$tmpDomain = $data['Domains'][rand(0, $tmpSize)];
 
@@ -98,7 +99,7 @@ function genAnswers($data, $questionType, $question, $domain) {
 				$tmpSize = count($data[$tmpDomain]['Attributes']) - 1;
 				$tmpAttribute = $data[$tmpDomain]['Attributes'][rand(0, $tmpSize)];
 				$tmpDefinition = $data[$tmpDomain][$tmpAttribute];
-			} while (in_array($tmpAttribute, $answers));
+			} while(in_array($tmpDefinition, $answers));
 
 			$answers[] = $tmpDefinition;
 		}
@@ -106,28 +107,33 @@ function genAnswers($data, $questionType, $question, $domain) {
 		shuffle($answers);
 		return $answers;
 	} else { //invalid request
-		throw new Exception("Error Processing Request", 1);
+		throw new Exception('Error Processing Request', 1);
 	}
 }
 
 /**
  * Checks a users answer  sent through from frontend.
  * @param  {array} $data     JSON data from appdate.json.
- * @param  {array} $userData The question and selected answer sent by frontend. Format: array("Question" => "question string", "Answers" => "users selected answer string").
+ * @param  {array} $userData The question and selected answer sent by frontend. Format: array('Question' => 'question string', 'Answers' => 'users selected answer string').
  * @return {boolean}           Returns true for correct answer, false for incorrect answer.
  */
-function checkAnswer($data, $userData) { // call on answer attempt
+function checkAnswer($data, $userData) {
 	$questionType = null;
 
-	if (strstr($userData['question'], "attribute"))
+	if (strstr($userData['question'], 'attribute'))
 		$questionType = 0;
-	elseif (strstr($userData['question'], "definition"))
+	elseif (strstr($userData['question'], 'definition'))
 		$questionType = 1;
 
-	$words = explode(' ', $userData['question']);
+	$words = explode('/', $userData['question']);
+	$wordsCount = count($words) - 1;
 	$actor = substr(array_pop($words), 0, -1);
 
 	if ($questionType == 0) { // Attribute of?
+		if(!in_array($actor, $data['Domains'])) {
+			$actor = $words[$wordsCount - 1] . '/' . substr($words[$wordsCount], 0, -1);
+		}
+
 		foreach ($data[$actor] as $key => $value) {
 			if ($key == $userData['answer'])
 				return true;
@@ -135,11 +141,18 @@ function checkAnswer($data, $userData) { // call on answer attempt
 
 		return false;
 	} elseif ($questionType == 1) { // Definition of?
-		foreach ($data['Domains'] as $value) {
-			foreach ($data[$value] as $v) {
-				if ($v == $userData['answer'])
-					return true;
-			}
+		$loopCount = 0;
+		$domain = $data[$userData['domain']];
+		$attribute = $actor;
+		array_shift($domain);
+
+		while(!array_key_exists($attribute, $domain) && $loopCount < 10) {
+			$attribute = sprintf('%s/%s', $words[$wordsCount - 1], $attribute);
+			$loopCount++;
+		}
+
+		if($domain[$attribute] == $userData['answer']) {
+			return true;
 		}
 
 		return false;
