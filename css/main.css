@@ -1,0 +1,42 @@
+p {
+  font-size: 14pt;
+}
+.black, .white, .ticker {
+  min-height: 325px;
+  border-radius: 5px;
+}
+
+.black {
+  background: #000;
+}
+
+.black p {
+  color: #fff;
+}
+
+.white {
+  background: #fff;
+  border: 1px solid #000;
+  border-radius: 5px;
+}
+
+.white:hover {
+  box-shadow: 2px 2px 2px #000;
+  -webkit-box-shadow: 2px 2px 2px #000;
+  -moz-box-shadow: 2px 2px 2px #000;
+  cursor: pointer;
+}
+
+.ticker p {
+  font-size: 11pt;
+}
+
+.score p {
+  font-size: 26pt;
+  margin: 30% 0 0;
+}
+
+.footer {
+  font-size: 10pt;
+  color: #b5b6b7;
+}
