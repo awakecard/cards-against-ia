@@ -1,39 +1,43 @@
 {
 	"Domains":["Architecture", "Dependability", "Risk/Management", "Trust/Management", "Protection", "Security", "Safety", "Resilience"],
 	"Architecture":{
-		"Attributes":["Lexicon", "Standards", "Mission", "Means", "Motivation"],
-		"Lexicon":"Lexicon Definition",
-		"Standards":"Standards Definition",
-		"Mission":"Mission Definition",
-		"Means":"Means Definition",
-		"Motivation":"Motivation Definition",
-		"Method":"Method Definition"
+		"Attributes":["Lexicon", "Standards", "Mission", "Means", "Motivation", "Method"],
+		"Lexicon":"A dictionary of word and phrases pertaining to a particular subject",
+		"Standards":"A baseline upon which to build a successful IA architecture",
+		"Mission":"A specific focus",
+		"Means":"The available resources",
+		"Motivation":"A set of reasons",
+		"Method":"A prescribed manner to proceed"
 	},
 	"Dependability":{
-		"Attributes":["Maintainablity", "Reliability", "Confidentiality", "Integrity", "Availablity"],
-		"Maintainablity":"Maintainablity Definition",
-		"Reliability":"Reliability Definition",
-		"Confidentiality":"Confidentiality Definition",
-		"Integrity":"Integrity Definition",
-		"Availablity":"Availablity Definition",
-		"Safety":"Safety Definition"
+		"Attributes":["Maintainability", "Reliability", "Confidentiality", "Integrity", "Availability", "Safety", "Performance", "Survivability"],
+		"Maintainability":"Ability to undergo repairs and modifications",
+		"Reliability":"Continuity of correct service",
+		"Confidentiality":"Absence of improper system state alterations",
+		"Integrity":"Absence of improper system state alterations",
+		"Availability":"Readiness for correct service",
+		"Safety":"Absence of catastrophic consequences",
+		"Performance": "The degree to which the system accomplishes its designated functions within given constraints",
+		"Survivability": "Capability to fulfill its mission, in the presence of failures"
 	},
 	"Risk/Management":{
-		"Attributes":["Identification", "Analysis", "Probability", "Impact", "Mitigation"],
-		"Identification":"I Def",
-		"Analysis":"A Def",
-		"Probability":"P Def",
-		"Impact":"I Def",
-		"Mitigation":"M Def"
+		"Attributes":["Analysis", "Probability", "Impact", "Type/and/Mitigation", "Assessment", "Risk/Description"],
+		"Analysis":"Threats and vulnerabilities",
+		"Probability":"How likely the risk event will happen",
+		"Impact":"A level indicating the impact of the risk being realised",
+		"Type/and/Mitigation":"Used to classify the risk and appropriate solutions",
+		"Assessment": "Identification of risks",
+		"Risk/Description": "A description of the risk detailing the impact for the project if this risk becomes a problem"
 	},
 	"Trust/Management":{
-		"Attributes":["Dynamic", "Attraction", "Local", "Expertness","Intentions"],
-		"Dynamic":"D Def",
-		"Attraction":"A Def",
-		"Local":"L Def",
-		"Expertness":"E Def",
-		"Intentions":"I Def",
-		"Reliability":"R Def"
+		"Attributes":["Dynamism", "Attraction", "Localness", "Expertness","Intentions", "Faith", "Reliability"],
+		"Dynamism":"Additional communication provided by an exchange partnet through oral, written or visual channels",
+		"Attraction":"The physical or non-physical characteristics of an exchange partner",
+		"Localness":"The perceived proximity of one or more dimensions between exchange partners",
+		"Expertness": "An exchange partnet's relevant skill, ability or knowlege",
+		"Intentions": "The perceived goals and objectives of an exchange partner",
+		"Reliability":"Measurement of an exchange partner in terms of dependability, predictability or consistency",
+		"Faith": "Belief that an exchange partner will fulfil their obligations"
 	},
 	"Protection":{
 		"Attributes":["System/Information", "Measure/Metrics", "Application/Data", "Risk/Management", "Technology"],
@@ -45,28 +49,35 @@
 		"Operations":"O Def"
 	},
 	"Security":{
-		"Attributes":["Accountability","Awareness","Multidisciplinary", "Ethics", "Proportionality"],
-		"Accountability":"AC Def",
-		"Awareness":"AW Def",
-		"Multidisciplinary":"MD Def",
-		"Ethics":"E Def",
-		"Proportionality":"PR Def"
+		"Attributes":["Accountability","Awareness","Multidisciplinary", "Ethics", "Proportionality", "Integration", "Timeliness", "Assessment", "Equity"],
+		"Accountability":"Characterisation of the ability to audit the actions of all parties and processes that interact with information",
+		"Awareness":"Informing relevant parties of security principles, standards, conventions and mechanisms",
+		"Multidisciplinary":"The combination of security principles, standards, conventions and mechanisms",
+		"Ethics":"A set of rules and expectations evolving from societies and cultures",
+		"Proportionality":"The value of security controls compared to the vulnerability or information asset they protect",
+		"Integration": "Security controls that are deployed as part of an information system",
+		"Timeliness": "The reaction of accountable parties to prevent or respond to breaches in a timely and coordinated manner",
+		"Assessment": "Identification and measurement of risks to information systems",
+		"Equity": "Respecting the rights and dignity of individuals when setting policy and selecting, implementing and enforcing security measures"
 	},
 	"Safety":{
-		"Attributes":["Avoidance", "Identification","Assessment","Limitation", "Reduction"],
-		"Avoidance":"Avoidance Definition",
-		"Identification":"Identification Definition",
-		"Assessment":"Assessment Definition",
-		"Limitation":"Limitation Definition",
-		"Reduction":"Reduction Definition"
+		"Attributes":["Avoidance", "Identification","Assessment","Limitation", "Reduction", "Analysis"],
+		"Avoidance":"The system is designed so that some classes or hazard simply cannot arise",
+		"Identification":"Establish the type of hazard that may threaten a system",
+		"Assessment":"A process focused on understanding the likelihood that a risk will arise and the potential consequences",
+		"Limitation":"The system includes protection features that minimize the damage that may result from an accident",
+		"Reduction":"A process which aims to identify dependability requirements",
+		"Analysis": "Discovering the root causes of risks in a particular system"
 
 	},
 	"Resilience":{
-		"Attributes":["Threats/and/Events", "Positive/Outcomes", "Adaptability", "Preparations","Survivability"],
-		"Threats/and/Events":"Threats and Events Definition",
-		"Positive/Outcomes":"Positive Outcomes Definition",
-		"Adaptability":"Adaptability Definition",
-		"Preparations":"Preparations Definition",
-		"Survivability":"Survivability Definition"
+		"Attributes":["Threats/and/Events", "Positive/Outcomes", "Adaptability", "Preparations","Survivability", "Gaining/Experience", "Interdependency"],
+		"Threats/and/Events":"Accomodation of abnormal occurrences",
+		"Positive/Outcomes":"The of the system to return to its original state after a surprise event",
+		"Adaptability":"The ability to change in the face of evolution",
+		"Preparations":"The ability or capacity to absorb and recover from an abnormal event",
+		"Survivability":"Unity or purpose and a collective commitment allow acceptance of extreme and abnormal conditions",
+		"Gaining/Experience": "The ability and willingness to learn",
+		"Interdependency": "Communities and organisations who are coordinated and share common values and beliefs"
 	}
 }
