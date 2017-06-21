@@ -1,13 +1,13 @@
-#Cards against IA
+## Cards against IA
 
 Created By Dan Craven
 
-##How to play
+## How to play
 
 1. pick a core topic
 2. click play
 
-##Goals
+## Goals
 1. define the play cards
 2. to come up with a defintion of the the random card
 3. link the random card to play card
